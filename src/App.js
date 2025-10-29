@@ -192,6 +192,9 @@ export default function App() {
 
       <div className="content">
         <h2 className="practice-title">Práctica 4</h2>
+        <h3 className="practice-title">
+          Los presentadores son, por el momento, solo Kourosh y Yazid.
+        </h3>
         <h1 className="title">
           ¡Click aquí👇🏼 para saber qué son los aranceles!
         </h1>
