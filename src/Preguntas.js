@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Preguntas.css";
 
 const Preguntas = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const [visibleItems, setVisibleItems] = useState([]);
 
   const toggleAccordion = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -84,12 +85,41 @@ const Preguntas = () => {
     },
   ];
 
+  useEffect(() => {
+    // Animate items in sequence with delays
+    const timer = setTimeout(() => {
+      const intervals = [];
+      faqData.forEach((_, index) => {
+        intervals.push(
+          setTimeout(() => {
+            setVisibleItems((prev) => [...prev, index]);
+          }, index * 200) // 200ms delay between each item
+        );
+      });
+
+      return () => intervals.forEach(clearTimeout);
+    }, 100); // Initial delay
+
+    return () => clearTimeout(timer);
+  }, [faqData.length]);
+
   return (
     <div className="preguntas-container">
-      <h1 className="preguntas-title">Preguntas sobre Aranceles</h1>
+      <h1
+        className="preguntas-title animate-pop-in"
+        style={{ animationDelay: "0.1s" }}
+      >
+        Preguntas sobre Aranceles
+      </h1>
       <div className="accordion">
         {faqData.map((item, index) => (
-          <div key={index} className="accordion-item">
+          <div
+            key={index}
+            className={`accordion-item ${
+              visibleItems.includes(index) ? "visible" : ""
+            }`}
+            style={{ animationDelay: `${0.3 + index * 0.2}s` }}
+          >
             <div
               className={`accordion-header ${
                 activeIndex === index ? "active" : ""

@@ -13,6 +13,27 @@
   margin-bottom: 2rem;
   color: #ffffff;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  transform: scale(0.8) translateY(-20px);
+}
+
+.animate-pop-in {
+  animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(-20px);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.05) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .accordion {
@@ -24,6 +45,14 @@
 .accordion-item {
   border-bottom: 1px solid #33415c;
   background-color: #1d2d44;
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.accordion-item.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .accordion-item:last-child {
@@ -36,12 +65,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
   background-color: #1d2d44;
 }
 
 .accordion-header:hover {
   background-color: #2a3d5c;
+  transform: translateX(10px);
 }
 
 .accordion-header.active {
@@ -55,23 +85,31 @@
   color: #ffffff;
   flex: 1;
   padding-right: 1rem;
+  transition: color 0.3s ease;
+}
+
+.accordion-header.active h3 {
+  color: #ff6b6b;
 }
 
 .accordion-icon {
   font-size: 1.5rem;
   font-weight: bold;
   color: #ff6b6b;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  min-width: 20px;
+  text-align: center;
 }
 
 .accordion-header.active .accordion-icon {
   transform: rotate(180deg);
+  color: #ffffff;
 }
 
 .accordion-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   background-color: #2a3d5c;
 }
 
@@ -83,6 +121,14 @@
   padding: 1.5rem;
   color: #e0e0e0;
   line-height: 1.6;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease 0.1s;
+}
+
+.accordion-content.active .accordion-answer {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .accordion-answer p {
@@ -100,6 +146,20 @@
 
 .accordion-answer li {
   margin-bottom: 0.5rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  animation: slideInListItem 0.3s ease forwards;
+}
+
+.accordion-content.active .accordion-answer li {
+  animation-delay: calc(0.1s + (var(--item-index, 0) * 0.05s));
+}
+
+@keyframes slideInListItem {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .accordion-answer ul li {
@@ -108,6 +168,24 @@
 
 .accordion-answer ol li {
   list-style-type: decimal;
+}
+
+/* Enhanced animations for the calculation example */
+.accordion-answer p {
+  opacity: 0;
+  transform: translateY(5px);
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.accordion-content.active .accordion-answer p {
+  animation-delay: calc(0.2s + (var(--item-index, 0) * 0.08s));
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive design */
@@ -131,6 +209,10 @@
   .accordion-answer {
     padding: 1rem;
   }
+  
+  .accordion-item {
+    transform: translateY(20px) scale(0.98);
+  }
 }
 
 @media (max-width: 480px) {
@@ -145,4 +227,18 @@
   .accordion-icon {
     font-size: 1.2rem;
   }
+}
+
+/* Add some interactive feedback */
+.accordion-item {
+  transition: all 0.3s ease;
+}
+
+.accordion-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.accordion-item.visible:hover {
+  transform: translateY(-2px) scale(1);
 }
