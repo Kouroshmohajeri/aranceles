@@ -190,7 +190,9 @@ export default function App() {
 
       <div className="content">
         <h2 className="practice-title">Práctica 4</h2>
-        <h1 className="title">¡Click aquí para saber qué son los aranceles!</h1>
+        <h1 className="title">
+          ¡Click aquí👇🏼 para saber qué son los aranceles!
+        </h1>
         <div className="lottie-container" onClick={handleClick}>
           <Lottie animationData={animationData} loop={true} />
         </div>
