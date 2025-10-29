@@ -1,5 +1,4 @@
 import { useCallback, useState } from "react";
-
 import { loadFull } from "tsparticles";
 import Particles from "react-tsparticles";
 import Lottie from "lottie-react";
@@ -95,6 +94,7 @@ export default function App() {
       {renderPercentRain()}
 
       <div className="content">
+        <h2 className="practice-title">Práctica 4</h2>
         <h1 className="title">¡Click aquí para saber qué son los aranceles!</h1>
         <div className="lottie-container" onClick={handleClick}>
           <Lottie animationData={animationData} loop={true} />
