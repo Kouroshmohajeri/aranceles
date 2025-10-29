@@ -71,7 +71,7 @@
 
 .accordion-header:hover {
   background-color: #2a3d5c;
-  transform: translateX(10px);
+
 }
 
 .accordion-header.active {
@@ -235,10 +235,7 @@
 }
 
 .accordion-item:hover {
-  transform: translateY(-2px);
+  
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
-.accordion-item.visible:hover {
-  transform: translateY(-2px) scale(1);
-}

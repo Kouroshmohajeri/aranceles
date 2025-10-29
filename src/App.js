@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { loadFull } from "tsparticles";
 import Particles from "react-tsparticles";
 import Lottie from "lottie-react";
@@ -7,7 +7,9 @@ import "./App.css";
 
 export default function App() {
   const [showPercentRain, setShowPercentRain] = useState(false);
-
+  useEffect(() => {
+    document.title = "Aranceles | Bloque 8";
+  }, []);
   const handleClick = () => {
     setShowPercentRain(true);
     setTimeout(() => {

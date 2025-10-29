@@ -4,7 +4,9 @@ import "./Preguntas.css";
 const Preguntas = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [visibleItems, setVisibleItems] = useState([]);
-
+  useEffect(() => {
+    document.title = "Bloque 8 | Preguntas";
+  }, []);
   const toggleAccordion = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
