@@ -1,0 +1,148 @@
+.preguntas-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #0d1321;
+  min-height: 100vh;
+  color: white;
+}
+
+.preguntas-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.accordion {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.accordion-item {
+  border-bottom: 1px solid #33415c;
+  background-color: #1d2d44;
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-header {
+  padding: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  background-color: #1d2d44;
+}
+
+.accordion-header:hover {
+  background-color: #2a3d5c;
+}
+
+.accordion-header.active {
+  background-color: #3d5a80;
+}
+
+.accordion-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  flex: 1;
+  padding-right: 1rem;
+}
+
+.accordion-icon {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff6b6b;
+  transition: transform 0.3s ease;
+}
+
+.accordion-header.active .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background-color: #2a3d5c;
+}
+
+.accordion-content.active {
+  max-height: 500px;
+}
+
+.accordion-answer {
+  padding: 1.5rem;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+.accordion-answer p {
+  margin-bottom: 0.5rem;
+}
+
+.accordion-answer strong {
+  color: #ff6b6b;
+}
+
+.accordion-answer ul, .accordion-answer ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.accordion-answer li {
+  margin-bottom: 0.5rem;
+}
+
+.accordion-answer ul li {
+  list-style-type: disc;
+}
+
+.accordion-answer ol li {
+  list-style-type: decimal;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .preguntas-container {
+    padding: 1rem;
+  }
+  
+  .preguntas-title {
+    font-size: 2rem;
+  }
+  
+  .accordion-header {
+    padding: 1rem;
+  }
+  
+  .accordion-header h3 {
+    font-size: 1.1rem;
+  }
+  
+  .accordion-answer {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .preguntas-title {
+    font-size: 1.8rem;
+  }
+  
+  .accordion-header h3 {
+    font-size: 1rem;
+  }
+  
+  .accordion-icon {
+    font-size: 1.2rem;
+  }
+}
