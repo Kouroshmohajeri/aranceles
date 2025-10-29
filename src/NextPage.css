@@ -1,0 +1,9 @@
+.nextpage-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #0d1321; /* same as first page for visual consistency */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
