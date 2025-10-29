@@ -13,36 +13,40 @@ export default function App() {
     setTimeout(() => {
       window.location.href =
         "https://gamma.app/docs/Los-Aranceles-t6yuqc72wcgaqbf";
-    }, 2000); // Redirect after 2 seconds
+    }, 3000); // Redirect after 3 seconds
   };
 
   const particlesInit = useCallback(async (engine) => {
     await loadFull(engine);
   }, []);
 
-  // Generate random % elements
-  const renderPercentRain = () => {
+  // Generate random falling elements
+  const renderFallingElements = () => {
     if (!showPercentRain) return null;
 
-    const percentElements = [];
-    for (let i = 0; i < 100; i++) {
-      const left = Math.random() * 100;
-      const animationDelay = Math.random() * 2;
-      const fontSize = Math.random() * 20 + 20; // Between 20px and 40px
+    const fallingElements = [];
 
-      percentElements.push(
+    // Create 150 % symbols
+    for (let i = 0; i < 150; i++) {
+      const left = Math.random() * 100;
+      const animationDelay = Math.random() * 3;
+      const fontSize = Math.random() * 25 + 15; // Between 15px and 40px
+      const animationDuration = Math.random() * 2 + 2; // Between 2-4 seconds
+
+      fallingElements.push(
         <div
-          key={i}
-          className="falling-percent"
+          key={`percent-${i}`}
+          className="falling-element"
           style={{
             position: "fixed",
             top: "-50px",
             left: `${left}vw`,
             fontSize: `${fontSize}px`,
-            color: "#fff",
+            color: "#ffffff", // White color
             fontWeight: "bold",
             textShadow: "0 0 10px rgba(255,255,255,0.5)",
             animationDelay: `${animationDelay}s`,
+            animationDuration: `${animationDuration}s`,
             zIndex: 1000,
             pointerEvents: "none",
           }}
@@ -51,7 +55,98 @@ export default function App() {
         </div>
       );
     }
-    return percentElements;
+
+    // Create "aranceles" elements
+    for (let i = 0; i < 25; i++) {
+      const left = Math.random() * 100;
+      const animationDelay = Math.random() * 3;
+      const fontSize = Math.random() * 20 + 25; // Between 25px and 45px
+      const animationDuration = Math.random() * 1.5 + 2.5;
+
+      fallingElements.push(
+        <div
+          key={`aranceles-${i}`}
+          className="falling-element"
+          style={{
+            position: "fixed",
+            top: "-50px",
+            left: `${left}vw`,
+            fontSize: `${fontSize}px`,
+            color: "#ffffff", // White color
+            fontWeight: "bold",
+            textShadow: "0 0 10px rgba(255,255,255,0.5)",
+            animationDelay: `${animationDelay}s`,
+            animationDuration: `${animationDuration}s`,
+            zIndex: 1000,
+            pointerEvents: "none",
+          }}
+        >
+          aranceles
+        </div>
+      );
+    }
+
+    // Create "IVA" elements
+    for (let i = 0; i < 25; i++) {
+      const left = Math.random() * 100;
+      const animationDelay = Math.random() * 3;
+      const fontSize = Math.random() * 18 + 22; // Between 22px and 40px
+      const animationDuration = Math.random() * 1.5 + 2.5;
+
+      fallingElements.push(
+        <div
+          key={`iva-${i}`}
+          className="falling-element"
+          style={{
+            position: "fixed",
+            top: "-50px",
+            left: `${left}vw`,
+            fontSize: `${fontSize}px`,
+            color: "#ffffff", // White color
+            fontWeight: "bold",
+            textShadow: "0 0 10px rgba(255,255,255,0.5)",
+            animationDelay: `${animationDelay}s`,
+            animationDuration: `${animationDuration}s`,
+            zIndex: 1000,
+            pointerEvents: "none",
+          }}
+        >
+          IVA
+        </div>
+      );
+    }
+
+    // Create "Impuestos" elements
+    for (let i = 0; i < 25; i++) {
+      const left = Math.random() * 100;
+      const animationDelay = Math.random() * 3;
+      const fontSize = Math.random() * 18 + 22; // Between 22px and 40px
+      const animationDuration = Math.random() * 1.5 + 2.5;
+
+      fallingElements.push(
+        <div
+          key={`impuestos-${i}`}
+          className="falling-element"
+          style={{
+            position: "fixed",
+            top: "-50px",
+            left: `${left}vw`,
+            fontSize: `${fontSize}px`,
+            color: "#ffffff", // White color
+            fontWeight: "bold",
+            textShadow: "0 0 10px rgba(255,255,255,0.5)",
+            animationDelay: `${animationDelay}s`,
+            animationDuration: `${animationDuration}s`,
+            zIndex: 1000,
+            pointerEvents: "none",
+          }}
+        >
+          Impuestos
+        </div>
+      );
+    }
+
+    return fallingElements;
   };
 
   return (
@@ -90,8 +185,8 @@ export default function App() {
         }}
       />
 
-      {/* Falling % animation */}
-      {renderPercentRain()}
+      {/* Falling elements animation */}
+      {renderFallingElements()}
 
       <div className="content">
         <h2 className="practice-title">Práctica 4</h2>

@@ -16,6 +16,15 @@
   color: white;
 }
 
+.practice-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #f0f0f0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
 .title {
   font-size: 2rem;
   font-weight: bold;
@@ -29,9 +38,9 @@
   margin: 0 auto;
 }
 
-/* Falling animation for % symbols */
-.falling-percent {
-  animation: fall 2s ease-in forwards;
+/* Falling animation for all elements */
+.falling-element {
+  animation: fall 3s ease-in forwards;
 }
 
 @keyframes fall {
@@ -46,6 +55,9 @@
 }
 
 @media (min-width: 768px) {
+  .practice-title {
+    font-size: 2rem;
+  }
   .title {
     font-size: 2.5rem;
   }
